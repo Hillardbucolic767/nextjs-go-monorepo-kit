@@ -9,7 +9,7 @@ feature-based `src` layout.
 - Next.js 16
 - React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS 4
 - shadcn/ui
 - TanStack Query
 - Zustand
@@ -61,6 +61,7 @@ NEXT_PUBLIC_ENABLE_SAMPLE_FALLBACK=false
 
 The template now includes:
 - centralized app metadata and branding config
+- Tailwind CSS 4 with CSS-first theme tokens in `src/app/globals.css`
 - a timeout-aware API client with typed API errors
 - polished global `loading`, `error`, and `not-found` app states
 - optional sample data fallbacks, enabled only when `NEXT_PUBLIC_ENABLE_SAMPLE_FALLBACK=true`

@@ -9,7 +9,7 @@ It includes a modern frontend app, a layered Go API, authentication flows, dashb
 - Next.js 16
 - React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS 4
 - Go
 - PostgreSQL
 - Docker Compose
