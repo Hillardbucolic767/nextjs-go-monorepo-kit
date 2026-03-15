@@ -41,8 +41,6 @@ export function VerifyEmailPageClient({ token }: VerifyEmailPageClientProps) {
   useEffect(() => {
     if (token && !hasTriggeredVerification.current) {
       hasTriggeredVerification.current = true;
-      setErrorMessage("");
-      setStatusMessage("");
       verifyMutation.mutate();
     }
   }, [token, verifyMutation]);

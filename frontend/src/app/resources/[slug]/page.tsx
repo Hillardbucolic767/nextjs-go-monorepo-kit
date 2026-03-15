@@ -9,17 +9,12 @@ type ResourcePageProps = {
 
 export default async function ResourcePage({ params }: ResourcePageProps) {
   const { slug } = await params;
+  const [resource, entries] = await Promise.all([getResource(slug), getEntriesByResource(slug)]).catch(() => notFound());
 
-  try {
-    const [resource, entries] = await Promise.all([getResource(slug), getEntriesByResource(slug)]);
-
-    return (
-      <main className="px-0 pb-20 pt-8">
-        <ResourceHero resource={resource} />
-        <ResourceEntryList entries={entries} />
-      </main>
-    );
-  } catch {
-    notFound();
-  }
+  return (
+    <main className="px-0 pb-20 pt-8">
+      <ResourceHero resource={resource} />
+      <ResourceEntryList entries={entries} />
+    </main>
+  );
 }
