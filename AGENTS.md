@@ -49,6 +49,8 @@ Run these from the repository root unless noted otherwise.
   Installs the Playwright Chromium browser.
 - `npm run e2e`
   Starts a disposable Postgres container, boots the Go API and production Next.js app, then runs Playwright smoke tests.
+- `npm run api:types`
+  Regenerates `frontend/src/generated/openapi.ts` from `docs/openapi.yaml`. Run this after changing API routes, request bodies, or response shapes.
 
 ## Definition Of Done
 
@@ -89,6 +91,10 @@ If a task intentionally avoids one of those, explain why.
   - Config lives in `frontend/next-sitemap.config.js`.
   - Generated files in `frontend/public/` may change after a build.
   - `autoLastmod` is disabled to reduce noisy diffs.
+- OpenAPI types are generated, not hand-edited.
+  - Source spec lives in `docs/openapi.yaml`.
+  - Generated frontend contract lives in `frontend/src/generated/openapi.ts`.
+  - If backend request or response shapes change, update the spec and rerun `npm run api:types`.
 - Header navigation includes `/#about` and `/#contact`, so homepage edits should keep those anchors meaningful unless navigation is updated too.
 
 ## Backend Architecture
@@ -125,6 +131,9 @@ If a task intentionally avoids one of those, explain why.
   - `frontend/public/robots.txt`
   - `frontend/public/sitemap.xml`
   - `frontend/public/sitemap-0.xml`
+- Release automation is managed by `release-please`.
+  - Config lives in `release-please-config.json` and `.release-please-manifest.json`.
+  - The root `CHANGELOG.md` and `version.txt` are release-managed files.
 
 ## Where To Start For Common Tasks
 

@@ -53,10 +53,27 @@ Backend: `http://localhost:8080`
 ```bash
 npm run dev
 npm run dev:down
+npm run api:types
 npm run check
 npm run e2e:install
 npm run e2e
 ```
+
+## API Contracts
+
+- `docs/openapi.yaml` is the source of truth for the HTTP contract exposed by the Go API.
+- `frontend/src/generated/openapi.ts` is generated from that spec with `openapi-typescript`.
+- Run `npm run api:types` after changing API routes, payloads, or response shapes so the frontend stays aligned with the backend.
+
+## Releases
+
+- `release-please` watches pushes to `main` and opens or updates a release PR.
+- Merge the release PR to create the Git tag and GitHub release.
+- Release metadata is driven by:
+  - `release-please-config.json`
+  - `.release-please-manifest.json`
+  - `CHANGELOG.md`
+  - `version.txt`
 
 ## Why This Template Is Strong
 
@@ -104,6 +121,7 @@ These files document the repo structure, verification commands, architecture con
 
 ## Repository Standards
 
+- [SOON.md](./SOON.md)
 - [CONTRIBUTING.md](./CONTRIBUTING.md)
 - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 - [LICENSE](./LICENSE)
