@@ -22,6 +22,8 @@ npm run dev
 
 This starts the frontend, backend, and Dockerized PostgreSQL together.
 
+Use the Node version pinned in [`.nvmrc`](./.nvmrc) when working on the frontend.
+
 ## Commit Style
 
 This repo uses conventional commit messages. Examples:
@@ -41,3 +43,7 @@ Good contributions for this template include:
 - test and CI improvements
 
 Please avoid adding product-specific business logic that makes the starter less reusable.
+
+## Releases
+
+This repository includes a `release-please` workflow for automated release PRs and tags on `main`.

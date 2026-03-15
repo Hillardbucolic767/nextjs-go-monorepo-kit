@@ -57,8 +57,9 @@ npm run check
 - resource and entry CRUD patterns for product-specific modules
 - protected dashboard and analytics-ready frontend patterns
 - Dockerized local database setup
-- lint, typecheck, production build, Go test, and Go build checks
+- lint, format check, unit tests, production build, Go test, and Go build checks
 - GitHub Actions, Husky, lint-staged, and commitlint support
+- release automation workflow for tagged template releases
 
 ## Notes
 
@@ -75,3 +76,4 @@ npm run check
 
 - [CONTRIBUTING.md](./CONTRIBUTING.md)
 - [LICENSE](./LICENSE)
+- [docs/expansions.md](./docs/expansions.md)
