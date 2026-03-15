@@ -10,7 +10,8 @@ export default function NotFound() {
           The page you asked for is not part of this starter.
         </h1>
         <p className="m-0 text-[var(--muted-text)]">
-          Use this screen as your default 404 state, or reshape it for your own product voice and support flow.
+          Use this screen as your default 404 state, or reshape it for your own
+          product voice and support flow.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Button asChild>

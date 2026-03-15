@@ -16,8 +16,8 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-12 w-full items-center justify-between rounded-full border border-border bg-white/90 px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-ring",
-      className
+      "border-border focus:ring-ring flex h-12 w-full items-center justify-between rounded-full border bg-white/90 px-4 py-2 text-sm outline-none focus:ring-2",
+      className,
     )}
     {...props}
   >
@@ -37,14 +37,16 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-2xl border border-border bg-white text-foreground shadow-md",
+        "border-border text-foreground relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-2xl border bg-white shadow-md",
         position === "popper" && "translate-y-1",
-        className
+        className,
       )}
       position={position}
       {...props}
     >
-      <SelectPrimitive.Viewport className="p-1">{children}</SelectPrimitive.Viewport>
+      <SelectPrimitive.Viewport className="p-1">
+        {children}
+      </SelectPrimitive.Viewport>
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
 ));
@@ -57,8 +59,8 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex w-full cursor-default select-none items-center rounded-xl py-2 pl-8 pr-3 text-sm outline-none focus:bg-accent/10",
-      className
+      "focus:bg-accent/10 relative flex w-full cursor-default items-center rounded-xl py-2 pr-3 pl-8 text-sm outline-none select-none",
+      className,
     )}
     {...props}
   >
@@ -72,4 +74,11 @@ const SelectItem = React.forwardRef<
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
-export { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue };
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+};

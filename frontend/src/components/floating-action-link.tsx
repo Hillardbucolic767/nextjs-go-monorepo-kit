@@ -6,7 +6,7 @@ export function FloatingActionLink() {
   return (
     <Button
       asChild
-      className="fixed bottom-4 right-4 z-20 inline-flex items-center gap-3 rounded-full bg-[#111827] px-4 py-3 text-white shadow-[0_18px_40px_rgba(17,24,39,0.28)] hover:bg-[#111827] max-[720px]:px-3"
+      className="fixed right-4 bottom-4 z-20 inline-flex items-center gap-3 rounded-full bg-[#111827] px-4 py-3 text-white shadow-[0_18px_40px_rgba(17,24,39,0.28)] hover:bg-[#111827] max-[720px]:px-3"
     >
       <Link href="/create-resource">
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--brand)]">

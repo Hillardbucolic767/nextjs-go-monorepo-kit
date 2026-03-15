@@ -6,7 +6,9 @@ type ConfirmEmailPageProps = {
   }>;
 };
 
-export default async function ConfirmEmailPage({ searchParams }: ConfirmEmailPageProps) {
+export default async function ConfirmEmailPage({
+  searchParams,
+}: ConfirmEmailPageProps) {
   const params = await searchParams;
 
   return <ConfirmEmailPageClient email={params.email} />;

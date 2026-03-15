@@ -11,7 +11,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function CollectionCatalog() {
   const { data: collections = [], isLoading } = useCollections();
@@ -21,7 +27,8 @@ export function CollectionCatalog() {
 
   const filteredCollections = useMemo(() => {
     return collections.filter((collection) => {
-      const matchesCategory = category === "All" || collection.category === category;
+      const matchesCategory =
+        category === "All" || collection.category === category;
       const matchesQuery =
         query.trim().length === 0 ||
         `${collection.title} ${collection.category} ${collection.summary}`
@@ -40,12 +47,13 @@ export function CollectionCatalog() {
             <span className="section-heading__eyebrow">Sample Collections</span>
             <h2>Explore starter content you can reshape for your product.</h2>
             <p className="m-0 leading-[1.65] text-[var(--muted-text)]">
-              Use these as placeholders for projects, categories, departments, products, or client spaces.
+              Use these as placeholders for projects, categories, departments,
+              products, or client spaces.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <div className="relative">
-              <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2" />
               <Input
                 className="min-w-[min(320px,100%)] pl-10 max-[720px]:min-w-full"
                 type="search"
@@ -72,24 +80,36 @@ export function CollectionCatalog() {
         <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
           {isLoading ? (
             <Card className="rounded-[24px] border border-[rgba(31,41,55,0.06)] bg-white/85 p-4">
-              <CardContent className="flex min-h-48 items-center justify-center p-6 text-muted-foreground">
+              <CardContent className="text-muted-foreground flex min-h-48 items-center justify-center p-6">
                 Loading collections...
               </CardContent>
             </Card>
           ) : null}
           {filteredCollections.map((collection) => (
-            <Card key={collection.id} className="rounded-[24px] border border-[rgba(31,41,55,0.06)] bg-white/85 p-4">
+            <Card
+              key={collection.id}
+              className="rounded-[24px] border border-[rgba(31,41,55,0.06)] bg-white/85 p-4"
+            >
               <div className="mb-4 aspect-[4/3] overflow-hidden rounded-[16px]">
-                <PlaceholderArt title={collection.title} label={collection.category} tone="neutral" className="h-full w-full" />
+                <PlaceholderArt
+                  title={collection.title}
+                  label={collection.category}
+                  tone="neutral"
+                  className="h-full w-full"
+                />
               </div>
               <CardContent className="p-0">
                 <Badge variant="outline" className="mb-3">
                   {collection.category}
                 </Badge>
-                <h3 className="mb-2 mt-0 text-[1.17rem]">{collection.title}</h3>
-                <p className="m-0 leading-[1.65] text-[var(--muted-text)]">{collection.summary}</p>
+                <h3 className="mt-0 mb-2 text-[1.17rem]">{collection.title}</h3>
+                <p className="m-0 leading-[1.65] text-[var(--muted-text)]">
+                  {collection.summary}
+                </p>
                 <div className="mt-4 flex items-center justify-between gap-4">
-                  <span className="text-[0.95rem] text-[var(--muted-text)]">{collection.published ? "Published" : "Draft"}</span>
+                  <span className="text-[0.95rem] text-[var(--muted-text)]">
+                    {collection.published ? "Published" : "Draft"}
+                  </span>
                   <Button asChild>
                     <Link href="/create-resource">Open builder</Link>
                   </Button>
@@ -99,7 +119,7 @@ export function CollectionCatalog() {
           ))}
           {!isLoading && filteredCollections.length === 0 ? (
             <Card className="rounded-[24px] border border-[rgba(31,41,55,0.06)] bg-white/85 p-4">
-              <CardContent className="flex min-h-48 items-center justify-center p-6 text-muted-foreground">
+              <CardContent className="text-muted-foreground flex min-h-48 items-center justify-center p-6">
                 No collections match your search yet.
               </CardContent>
             </Card>

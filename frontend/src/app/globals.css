@@ -76,8 +76,16 @@
     min-width: 320px;
     font-family: var(--font-body), sans-serif;
     background:
-      radial-gradient(circle at top left, rgba(239, 125, 87, 0.24), transparent 32%),
-      radial-gradient(circle at top right, rgba(31, 111, 120, 0.15), transparent 28%),
+      radial-gradient(
+        circle at top left,
+        rgba(239, 125, 87, 0.24),
+        transparent 32%
+      ),
+      radial-gradient(
+        circle at top right,
+        rgba(31, 111, 120, 0.15),
+        transparent 28%
+      ),
       linear-gradient(180deg, #fffaf2 0%, #fff7ed 100%);
   }
 

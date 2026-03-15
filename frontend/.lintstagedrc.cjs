@@ -1,3 +1,4 @@
 module.exports = {
-  "*.{ts,tsx,js,jsx}": () => "npm run lint",
+  "*.{ts,tsx,js,jsx}": () => ["npm run lint", "npm run format"],
+  "*.{json,md,css,mjs,yml,yaml}": () => "npm run format",
 };

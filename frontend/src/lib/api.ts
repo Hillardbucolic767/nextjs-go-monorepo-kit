@@ -32,12 +32,19 @@ function createTimeoutSignal(timeoutMs: number) {
 }
 
 async function parseError(response: Response) {
-  const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+  const payload = (await response.json().catch(() => null)) as {
+    error?: string;
+  } | null;
   return payload?.error || `API request failed with status ${response.status}`;
 }
 
-export async function fetchJson<T>(path: string, init?: RequestInit & { timeoutMs?: number }): Promise<T> {
-  const timeout = createTimeoutSignal(init?.timeoutMs ?? DEFAULT_REQUEST_TIMEOUT_MS);
+export async function fetchJson<T>(
+  path: string,
+  init?: RequestInit & { timeoutMs?: number },
+): Promise<T> {
+  const timeout = createTimeoutSignal(
+    init?.timeoutMs ?? DEFAULT_REQUEST_TIMEOUT_MS,
+  );
 
   try {
     const response = await fetch(buildApiUrl(path), {

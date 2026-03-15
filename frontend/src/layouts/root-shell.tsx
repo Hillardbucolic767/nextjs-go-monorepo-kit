@@ -14,7 +14,7 @@ export function RootShell({ children }: RootShellProps) {
       <div className="page-shell">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[var(--text)] focus:shadow-[var(--shadow)]"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[var(--text)] focus:shadow-[var(--shadow)]"
         >
           Skip to content
         </a>

@@ -4,7 +4,9 @@ import process from "node:process";
 
 const commands = [
   { cwd: path.join(process.cwd(), "frontend"), command: "npm", args: ["run", "lint"] },
+  { cwd: path.join(process.cwd(), "frontend"), command: "npm", args: ["run", "format:check"] },
   { cwd: path.join(process.cwd(), "frontend"), command: "npm", args: ["run", "typecheck"] },
+  { cwd: path.join(process.cwd(), "frontend"), command: "npm", args: ["run", "test"] },
   { cwd: path.join(process.cwd(), "frontend"), command: "npm", args: ["run", "build"] },
   { cwd: path.join(process.cwd(), "backend"), command: "go", args: ["test", "./..."] },
   { cwd: path.join(process.cwd(), "backend"), command: "go", args: ["build", "./..."] },

@@ -53,13 +53,26 @@ export function ResourceEntryStep({
         />
       </div>
       <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
-        <Button type="button" variant="secondary" onClick={onBack} disabled={isSubmitting}>
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={onBack}
+          disabled={isSubmitting}
+        >
           <ArrowLeft className="h-4 w-4" />
           Back
         </Button>
         <Button type="button" onClick={onNext} disabled={disabled}>
-          {step === totalEntries ? (isSubmitting ? "Submitting..." : "Submit") : "Next entry"}
-          {step === totalEntries ? <Check className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
+          {step === totalEntries
+            ? isSubmitting
+              ? "Submitting..."
+              : "Submit"
+            : "Next entry"}
+          {step === totalEntries ? (
+            <Check className="h-4 w-4" />
+          ) : (
+            <ArrowRight className="h-4 w-4" />
+          )}
         </Button>
       </div>
     </form>

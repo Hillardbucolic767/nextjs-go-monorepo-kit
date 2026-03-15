@@ -11,7 +11,12 @@ export default function ForgotPasswordPage() {
       footerLinkLabel="Login"
       footerLinkHref="/login"
       fields={[
-        { id: "email", label: "Email", type: "email", placeholder: "Enter your email" },
+        {
+          id: "email",
+          label: "Email",
+          type: "email",
+          placeholder: "Enter your email",
+        },
       ]}
     />
   );

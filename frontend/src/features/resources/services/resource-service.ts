@@ -1,7 +1,12 @@
 import { buildApiUrl } from "@/lib/api";
 import { appConfig } from "@/lib/app-config";
 import { sampleEntriesByResource, sampleResources } from "@/lib/site-data";
-import type { CreateEntryInput, CreateResourceInput, Entry, Resource } from "@/types/resource";
+import type {
+  CreateEntryInput,
+  CreateResourceInput,
+  Entry,
+  Resource,
+} from "@/types/resource";
 
 type ResourceResponse = {
   data: Resource;
@@ -22,7 +27,10 @@ type EntryListResponse = {
 async function parseResponse<T>(response: Response): Promise<T> {
   const payload = (await response.json()) as T | { error?: string };
   if (!response.ok) {
-    const message = typeof payload === "object" && payload !== null && "error" in payload ? payload.error : undefined;
+    const message =
+      typeof payload === "object" && payload !== null && "error" in payload
+        ? payload.error
+        : undefined;
     throw new Error(message || `Request failed with status ${response.status}`);
   }
 
@@ -34,15 +42,22 @@ async function parseNoContent(response: Response): Promise<void> {
     return;
   }
 
-  const payload = (await response.json().catch(() => null)) as { error?: string } | null;
-  throw new Error(payload?.error || `Request failed with status ${response.status}`);
+  const payload = (await response.json().catch(() => null)) as {
+    error?: string;
+  } | null;
+  throw new Error(
+    payload?.error || `Request failed with status ${response.status}`,
+  );
 }
 
 function canUseSampleFallback() {
   return appConfig.enableSampleFallback;
 }
 
-export async function createResource(accessToken: string, input: CreateResourceInput): Promise<Resource> {
+export async function createResource(
+  accessToken: string,
+  input: CreateResourceInput,
+): Promise<Resource> {
   const response = await fetch(buildApiUrl("/resources"), {
     method: "POST",
     headers: {
@@ -56,7 +71,11 @@ export async function createResource(accessToken: string, input: CreateResourceI
   return payload.data;
 }
 
-export async function createEntry(accessToken: string, slug: string, input: CreateEntryInput): Promise<Entry> {
+export async function createEntry(
+  accessToken: string,
+  slug: string,
+  input: CreateEntryInput,
+): Promise<Entry> {
   const response = await fetch(buildApiUrl(`/resources/${slug}/entries`), {
     method: "POST",
     headers: {
@@ -131,7 +150,10 @@ export async function getEntriesByResource(slug: string): Promise<Entry[]> {
   }
 }
 
-export async function deleteEntry(accessToken: string, id: string): Promise<void> {
+export async function deleteEntry(
+  accessToken: string,
+  id: string,
+): Promise<void> {
   const response = await fetch(buildApiUrl(`/entries/${id}`), {
     method: "DELETE",
     headers: {
@@ -142,7 +164,10 @@ export async function deleteEntry(accessToken: string, id: string): Promise<void
   return parseNoContent(response);
 }
 
-export async function deleteResource(accessToken: string, slug: string): Promise<void> {
+export async function deleteResource(
+  accessToken: string,
+  slug: string,
+): Promise<void> {
   const response = await fetch(buildApiUrl(`/resources/${slug}`), {
     method: "DELETE",
     headers: {

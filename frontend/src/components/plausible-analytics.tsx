@@ -7,7 +7,10 @@ function getPlausibleDomain() {
 }
 
 function getPlausibleScriptSrc() {
-  return process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC?.trim() || "https://plausible.io/js/script.js";
+  return (
+    process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC?.trim() ||
+    "https://plausible.io/js/script.js"
+  );
 }
 
 export function PlausibleAnalytics() {

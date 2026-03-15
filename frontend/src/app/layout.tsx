@@ -24,7 +24,13 @@ export const metadata: Metadata = {
   },
   description: appConfig.description,
   applicationName: appConfig.name,
-  keywords: ["Next.js template", "Go API", "full-stack starter", "resource dashboard", "auth starter"],
+  keywords: [
+    "Next.js template",
+    "Go API",
+    "full-stack starter",
+    "resource dashboard",
+    "auth starter",
+  ],
   openGraph: {
     title: appConfig.name,
     description: appConfig.description,

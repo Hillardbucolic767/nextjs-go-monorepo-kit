@@ -46,6 +46,8 @@ npm run dev
 npm run build
 npm run start
 npm run lint
+npm run test
+npm run format
 npm run typecheck
 ```
 
@@ -60,6 +62,7 @@ NEXT_PUBLIC_ENABLE_SAMPLE_FALLBACK=false
 ```
 
 The template now includes:
+
 - centralized app metadata and branding config
 - Tailwind CSS 4 with CSS-first theme tokens in `src/app/globals.css`
 - a timeout-aware API client with typed API errors
@@ -67,6 +70,7 @@ The template now includes:
 - optional sample data fallbacks, enabled only when `NEXT_PUBLIC_ENABLE_SAMPLE_FALLBACK=true`
 - demo credentials surfaced on the login screen for local development
 - in-memory auth session storage so access tokens are not persisted across browser refreshes
+- Vitest coverage for frontend utility behavior
 
 ## Quality Tooling
 

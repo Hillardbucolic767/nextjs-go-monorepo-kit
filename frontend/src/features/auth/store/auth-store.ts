@@ -12,23 +12,21 @@ type AuthState = {
   clearSession: () => void;
 };
 
-export const useAuthStore = create<AuthState>()(
-  (set) => ({
-    accessToken: null,
-    expiresAt: null,
-    user: null,
-    setSession: (session) =>
-      set({
-        accessToken: session.accessToken,
-        expiresAt: session.expiresAt,
-        user: session.user,
-      }),
-    setUser: (user) => set({ user }),
-    clearSession: () =>
-      set({
-        accessToken: null,
-        expiresAt: null,
-        user: null,
-      }),
-  })
-);
+export const useAuthStore = create<AuthState>()((set) => ({
+  accessToken: null,
+  expiresAt: null,
+  user: null,
+  setSession: (session) =>
+    set({
+      accessToken: session.accessToken,
+      expiresAt: session.expiresAt,
+      user: session.user,
+    }),
+  setUser: (user) => set({ user }),
+  clearSession: () =>
+    set({
+      accessToken: null,
+      expiresAt: null,
+      user: null,
+    }),
+}));

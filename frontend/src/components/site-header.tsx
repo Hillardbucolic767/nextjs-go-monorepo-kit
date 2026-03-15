@@ -9,7 +9,12 @@ import { useAuthStore } from "@/features/auth/store/auth-store";
 import { useUiStore } from "@/features/shared/store/ui-store";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { appConfig, brandInitials } from "@/lib/app-config";
 import { canAccessDashboard } from "@/lib/dashboard-access";
 import { cn } from "@/lib/utils";
@@ -42,12 +47,15 @@ export function SiteHeader() {
           href="/"
           className="inline-flex items-center gap-3 font-[family-name:var(--font-display)] text-[1.35rem] font-bold tracking-[-0.03em]"
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--accent)] text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_8px_20px_rgba(31,41,55,0.1)]">
+          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--accent)] text-sm font-semibold tracking-[0.18em] text-white uppercase shadow-[0_8px_20px_rgba(31,41,55,0.1)]">
             {brandInitials}
           </span>
           <span>{appConfig.name}</span>
         </Link>
-        <nav className="flex items-center gap-1 max-[900px]:hidden" aria-label="Primary">
+        <nav
+          className="flex items-center gap-1 max-[900px]:hidden"
+          aria-label="Primary"
+        >
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -55,7 +63,8 @@ export function SiteHeader() {
               aria-current={pathname === item.href ? "page" : undefined}
               className={cn(
                 "rounded-full px-4 py-3 text-[var(--muted-text)] transition-colors hover:bg-[rgba(31,111,120,0.1)] hover:text-[var(--text)]",
-                pathname === item.href && "bg-[rgba(31,111,120,0.1)] text-[var(--text)]"
+                pathname === item.href &&
+                  "bg-[rgba(31,111,120,0.1)] text-[var(--text)]",
               )}
             >
               {item.label}
@@ -67,7 +76,8 @@ export function SiteHeader() {
               aria-current={pathname === "/dashboard" ? "page" : undefined}
               className={cn(
                 "rounded-full px-4 py-3 text-[var(--muted-text)] transition-colors hover:bg-[rgba(31,111,120,0.1)] hover:text-[var(--text)]",
-                pathname === "/dashboard" && "bg-[rgba(31,111,120,0.1)] text-[var(--text)]"
+                pathname === "/dashboard" &&
+                  "bg-[rgba(31,111,120,0.1)] text-[var(--text)]",
               )}
             >
               Dashboard
@@ -86,7 +96,9 @@ export function SiteHeader() {
               </Button>
             </>
           ) : isLoading ? (
-            <span className="rounded-full bg-white/70 px-4 py-2 text-sm text-[var(--muted-text)]">Loading...</span>
+            <span className="rounded-full bg-white/70 px-4 py-2 text-sm text-[var(--muted-text)]">
+              Loading...
+            </span>
           ) : (
             <>
               <Button asChild variant="secondary">
@@ -100,7 +112,12 @@ export function SiteHeader() {
         </div>
         <Sheet open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
           <SheetTrigger asChild>
-            <Button size="icon" variant="secondary" className="hidden max-[900px]:inline-flex" aria-label="Toggle navigation">
+            <Button
+              size="icon"
+              variant="secondary"
+              className="hidden max-[900px]:inline-flex"
+              aria-label="Toggle navigation"
+            >
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
@@ -115,14 +132,20 @@ export function SiteHeader() {
               <nav className="grid gap-2">
                 {navItems.map((item) => (
                   <SheetClose asChild key={item.href}>
-                    <Link href={item.href} className="rounded-[18px] bg-white px-4 py-4">
+                    <Link
+                      href={item.href}
+                      className="rounded-[18px] bg-white px-4 py-4"
+                    >
                       {item.label}
                     </Link>
                   </SheetClose>
                 ))}
                 {showDashboardLink ? (
                   <SheetClose asChild>
-                    <Link href="/dashboard" className="rounded-[18px] bg-white px-4 py-4">
+                    <Link
+                      href="/dashboard"
+                      className="rounded-[18px] bg-white px-4 py-4"
+                    >
                       Dashboard
                     </Link>
                   </SheetClose>
@@ -135,7 +158,11 @@ export function SiteHeader() {
                       Signed in as {user.full_name || user.username}
                     </div>
                     <SheetClose asChild>
-                      <Button type="button" variant="secondary" onClick={handleLogout}>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={handleLogout}
+                      >
                         <LogOut className="h-4 w-4" />
                         Logout
                       </Button>

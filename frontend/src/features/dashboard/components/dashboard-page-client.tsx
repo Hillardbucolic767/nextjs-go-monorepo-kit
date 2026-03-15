@@ -5,7 +5,10 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { BarChart3, Eye, Layers3, ShieldAlert, Trash2 } from "lucide-react";
-import { canAccessDashboard, getDashboardOwnerEmail } from "@/lib/dashboard-access";
+import {
+  canAccessDashboard,
+  getDashboardOwnerEmail,
+} from "@/lib/dashboard-access";
 import { useAuthSession } from "@/features/auth/hooks/use-auth-session";
 import { getAnalyticsOverview } from "@/features/dashboard/services/dashboard-service";
 import {
@@ -17,7 +20,13 @@ import {
 import { useAuthStore } from "@/features/auth/store/auth-store";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import type { AnalyticsOverview } from "@/types/analytics";
 import type { Entry, Resource } from "@/types/resource";
 
@@ -33,7 +42,7 @@ async function getOwnedResources(userId: string): Promise<OwnedResource[]> {
     ownedResources.map(async (resource) => ({
       ...resource,
       entries: await getEntriesByResource(resource.slug),
-    }))
+    })),
   );
 
   return entriesByResource;
@@ -97,7 +106,9 @@ export function DashboardPageClient() {
       await queryClient.invalidateQueries({ queryKey: ["auth"] });
     },
     onError: (error) => {
-      setActionMessage(error instanceof Error ? error.message : "Failed to delete entry.");
+      setActionMessage(
+        error instanceof Error ? error.message : "Failed to delete entry.",
+      );
     },
   });
 
@@ -115,7 +126,9 @@ export function DashboardPageClient() {
       await queryClient.invalidateQueries({ queryKey: ["auth"] });
     },
     onError: (error) => {
-      setActionMessage(error instanceof Error ? error.message : "Failed to delete resource.");
+      setActionMessage(
+        error instanceof Error ? error.message : "Failed to delete resource.",
+      );
     },
   });
 
@@ -137,13 +150,16 @@ export function DashboardPageClient() {
             <ShieldAlert className="mt-1 h-5 w-5 text-amber-700" />
             <div className="grid gap-3">
               <div>
-                <h1 className="font-[family-name:var(--font-display)] text-3xl">Dashboard locked</h1>
+                <h1 className="font-[family-name:var(--font-display)] text-3xl">
+                  Dashboard locked
+                </h1>
                 <p className="mt-2 text-sm text-amber-900/80">
                   This page only opens for the dashboard owner account.
                 </p>
               </div>
               <p className="text-sm text-amber-900/80">
-                Set <code>NEXT_PUBLIC_DASHBOARD_OWNER_EMAIL</code> to your email to enable access.
+                Set <code>NEXT_PUBLIC_DASHBOARD_OWNER_EMAIL</code> to your email
+                to enable access.
                 {ownerEmail ? ` Current owner email: ${ownerEmail}.` : ""}
               </p>
               <div>
@@ -159,23 +175,31 @@ export function DashboardPageClient() {
   }
 
   const ownedResources = dashboardQuery.data ?? [];
-  const totalEntries = ownedResources.reduce((sum, resource) => sum + resource.entries.length, 0);
+  const totalEntries = ownedResources.reduce(
+    (sum, resource) => sum + resource.entries.length,
+    0,
+  );
   const latestUpdate = ownedResources
     .map((resource) => resource.updated_at)
-    .sort((left, right) => new Date(right).getTime() - new Date(left).getTime())[0];
+    .sort(
+      (left, right) => new Date(right).getTime() - new Date(left).getTime(),
+    )[0];
 
   return (
     <main className="mx-auto my-6 grid w-[min(var(--max-width),calc(100%-2rem))] gap-6 max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
       <section className="rounded-[36px] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.16),transparent_28%),linear-gradient(135deg,rgba(16,52,67,0.94),rgba(31,111,120,0.84))] p-[clamp(1.75rem,4vw,3rem)] text-white shadow-[var(--shadow)]">
         <div className="grid gap-4">
-          <Badge className="w-fit rounded-full bg-white/15 px-3 py-1 text-white hover:bg-white/15">Owner Dashboard</Badge>
+          <Badge className="w-fit rounded-full bg-white/15 px-3 py-1 text-white hover:bg-white/15">
+            Owner Dashboard
+          </Badge>
           <div className="grid gap-3">
             <h1 className="m-0 font-[family-name:var(--font-display)] text-[clamp(2.2rem,5vw,4.25rem)] leading-[0.95]">
               Manage your sample resources from one private workspace.
             </h1>
             <p className="m-0 max-w-[760px] text-white/80">
-              You can review every resource you own, delete individual entries, remove full resources,
-              and monitor the content health of your library.
+              You can review every resource you own, delete individual entries,
+              remove full resources, and monitor the content health of your
+              library.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -211,7 +235,9 @@ export function DashboardPageClient() {
         <Card>
           <CardHeader>
             <CardDescription>Last Content Update</CardDescription>
-            <CardTitle className="text-xl">{latestUpdate ? formatDate(latestUpdate) : "No updates yet"}</CardTitle>
+            <CardTitle className="text-xl">
+              {latestUpdate ? formatDate(latestUpdate) : "No updates yet"}
+            </CardTitle>
           </CardHeader>
         </Card>
       </section>
@@ -220,36 +246,51 @@ export function DashboardPageClient() {
         <Card>
           <CardHeader>
             <CardTitle>Your Resources</CardTitle>
-            <CardDescription>Delete single entries or remove the whole resource if you want to clean up old content.</CardDescription>
+            <CardDescription>
+              Delete single entries or remove the whole resource if you want to
+              clean up old content.
+            </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             {actionMessage ? (
-              <p className="rounded-2xl border border-border bg-white px-4 py-3 text-sm text-[var(--muted-text)]">
+              <p className="border-border rounded-2xl border bg-white px-4 py-3 text-sm text-[var(--muted-text)]">
                 {actionMessage}
               </p>
             ) : null}
             {dashboardQuery.isError ? (
               <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-                {dashboardQuery.error instanceof Error ? dashboardQuery.error.message : "Failed to load dashboard data."}
+                {dashboardQuery.error instanceof Error
+                  ? dashboardQuery.error.message
+                  : "Failed to load dashboard data."}
               </p>
             ) : null}
             {ownedResources.length === 0 ? (
-              <div className="rounded-[28px] border border-dashed border-border bg-white/60 p-6">
-                <p className="text-[var(--muted-text)]">No owned public resources were found yet.</p>
+              <div className="border-border rounded-[28px] border border-dashed bg-white/60 p-6">
+                <p className="text-[var(--muted-text)]">
+                  No owned public resources were found yet.
+                </p>
               </div>
             ) : (
               ownedResources.map((resource) => (
-                <div key={resource.id} className="rounded-[28px] border border-border/70 bg-white p-5 shadow-sm">
+                <div
+                  key={resource.id}
+                  className="border-border/70 rounded-[28px] border bg-white p-5 shadow-sm"
+                >
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="grid gap-2">
                       <div className="flex flex-wrap items-center gap-2">
-                        <h2 className="font-[family-name:var(--font-display)] text-2xl">{resource.title}</h2>
+                        <h2 className="font-[family-name:var(--font-display)] text-2xl">
+                          {resource.title}
+                        </h2>
                         <Badge variant="secondary">{resource.status}</Badge>
                         <Badge variant="outline">{resource.visibility}</Badge>
                       </div>
-                      <p className="max-w-[700px] text-sm text-[var(--muted-text)]">{resource.description || "No description."}</p>
-                      <p className="text-xs uppercase tracking-[0.08em] text-[var(--muted-text)]">
-                        {resource.entries.length} entries • updated {formatDate(resource.updated_at)}
+                      <p className="max-w-[700px] text-sm text-[var(--muted-text)]">
+                        {resource.description || "No description."}
+                      </p>
+                      <p className="text-xs tracking-[0.08em] text-[var(--muted-text)] uppercase">
+                        {resource.entries.length} entries • updated{" "}
+                        {formatDate(resource.updated_at)}
                       </p>
                     </div>
                     <Button
@@ -257,11 +298,20 @@ export function DashboardPageClient() {
                       variant="secondary"
                       onClick={() => {
                         setActionMessage("");
-                        if (window.confirm(`Delete the full resource "${resource.title}"? This cannot be undone.`)) {
-                          deleteResourceMutation.mutate({ slug: resource.slug });
+                        if (
+                          window.confirm(
+                            `Delete the full resource "${resource.title}"? This cannot be undone.`,
+                          )
+                        ) {
+                          deleteResourceMutation.mutate({
+                            slug: resource.slug,
+                          });
                         }
                       }}
-                      disabled={deleteResourceMutation.isPending || deleteEntryMutation.isPending}
+                      disabled={
+                        deleteResourceMutation.isPending ||
+                        deleteEntryMutation.isPending
+                      }
                     >
                       <Trash2 className="h-4 w-4" />
                       Delete resource
@@ -277,25 +327,36 @@ export function DashboardPageClient() {
                       resource.entries.map((entry) => (
                         <div
                           key={entry.id}
-                          className="flex flex-wrap items-start justify-between gap-3 rounded-[22px] border border-border/60 bg-[var(--surface)] px-4 py-4"
+                          className="border-border/60 flex flex-wrap items-start justify-between gap-3 rounded-[22px] border bg-[var(--surface)] px-4 py-4"
                         >
                           <div className="grid max-w-[760px] gap-2">
-                            <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--muted-text)]">
+                            <p className="text-xs font-bold tracking-[0.08em] text-[var(--muted-text)] uppercase">
                               Entry {entry.position}
                             </p>
-                            <p className="font-semibold text-[var(--text)]">{entry.title}</p>
-                            <p className="text-sm text-[var(--muted-text)]">{entry.content}</p>
+                            <p className="font-semibold text-[var(--text)]">
+                              {entry.title}
+                            </p>
+                            <p className="text-sm text-[var(--muted-text)]">
+                              {entry.content}
+                            </p>
                           </div>
                           <Button
                             type="button"
                             variant="ghost"
                             onClick={() => {
                               setActionMessage("");
-                              if (window.confirm("Delete this entry? This cannot be undone.")) {
+                              if (
+                                window.confirm(
+                                  "Delete this entry? This cannot be undone.",
+                                )
+                              ) {
                                 deleteEntryMutation.mutate({ id: entry.id });
                               }
                             }}
-                            disabled={deleteEntryMutation.isPending || deleteResourceMutation.isPending}
+                            disabled={
+                              deleteEntryMutation.isPending ||
+                              deleteResourceMutation.isPending
+                            }
                           >
                             <Trash2 className="h-4 w-4" />
                             Delete entry
@@ -313,70 +374,112 @@ export function DashboardPageClient() {
         <Card>
           <CardHeader>
             <CardTitle>Visitors Analytics</CardTitle>
-            <CardDescription>Real traffic numbers from the protected analytics backend endpoint.</CardDescription>
+            <CardDescription>
+              Real traffic numbers from the protected analytics backend
+              endpoint.
+            </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             {analyticsQuery.isError ? (
               <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-                {analyticsQuery.error instanceof Error ? analyticsQuery.error.message : "Failed to load analytics."}
+                {analyticsQuery.error instanceof Error
+                  ? analyticsQuery.error.message
+                  : "Failed to load analytics."}
               </p>
             ) : null}
             {analyticsQuery.isLoading ? (
-              <div className="rounded-[28px] border border-border bg-[var(--surface)] p-5">
-                <p className="text-sm text-[var(--muted-text)]">Loading analytics overview...</p>
+              <div className="border-border rounded-[28px] border bg-[var(--surface)] p-5">
+                <p className="text-sm text-[var(--muted-text)]">
+                  Loading analytics overview...
+                </p>
               </div>
             ) : analyticsQuery.data ? (
               <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3">
-                <div className="rounded-[24px] border border-border bg-[var(--surface)] p-4">
-                  <p className="text-xs uppercase tracking-[0.08em] text-[var(--muted-text)]">Visitors</p>
-                  <p className="mt-2 text-3xl font-semibold">{analyticsQuery.data.visitors}</p>
+                <div className="border-border rounded-[24px] border bg-[var(--surface)] p-4">
+                  <p className="text-xs tracking-[0.08em] text-[var(--muted-text)] uppercase">
+                    Visitors
+                  </p>
+                  <p className="mt-2 text-3xl font-semibold">
+                    {analyticsQuery.data.visitors}
+                  </p>
                 </div>
-                <div className="rounded-[24px] border border-border bg-[var(--surface)] p-4">
-                  <p className="text-xs uppercase tracking-[0.08em] text-[var(--muted-text)]">Pageviews</p>
-                  <p className="mt-2 text-3xl font-semibold">{analyticsQuery.data.pageviews}</p>
+                <div className="border-border rounded-[24px] border bg-[var(--surface)] p-4">
+                  <p className="text-xs tracking-[0.08em] text-[var(--muted-text)] uppercase">
+                    Pageviews
+                  </p>
+                  <p className="mt-2 text-3xl font-semibold">
+                    {analyticsQuery.data.pageviews}
+                  </p>
                 </div>
-                <div className="rounded-[24px] border border-border bg-[var(--surface)] p-4">
-                  <p className="text-xs uppercase tracking-[0.08em] text-[var(--muted-text)]">Views / Visit</p>
-                  <p className="mt-2 text-3xl font-semibold">{analyticsQuery.data.views_per_visit}</p>
+                <div className="border-border rounded-[24px] border bg-[var(--surface)] p-4">
+                  <p className="text-xs tracking-[0.08em] text-[var(--muted-text)] uppercase">
+                    Views / Visit
+                  </p>
+                  <p className="mt-2 text-3xl font-semibold">
+                    {analyticsQuery.data.views_per_visit}
+                  </p>
                 </div>
-                <div className="rounded-[24px] border border-border bg-[var(--surface)] p-4">
-                  <p className="text-xs uppercase tracking-[0.08em] text-[var(--muted-text)]">Bounce Rate</p>
-                  <p className="mt-2 text-3xl font-semibold">{analyticsQuery.data.bounce_rate}</p>
+                <div className="border-border rounded-[24px] border bg-[var(--surface)] p-4">
+                  <p className="text-xs tracking-[0.08em] text-[var(--muted-text)] uppercase">
+                    Bounce Rate
+                  </p>
+                  <p className="mt-2 text-3xl font-semibold">
+                    {analyticsQuery.data.bounce_rate}
+                  </p>
                 </div>
-                <div className="rounded-[24px] border border-border bg-[var(--surface)] p-4">
-                  <p className="text-xs uppercase tracking-[0.08em] text-[var(--muted-text)]">Visit Duration</p>
-                  <p className="mt-2 text-3xl font-semibold">{analyticsQuery.data.visit_duration}</p>
+                <div className="border-border rounded-[24px] border bg-[var(--surface)] p-4">
+                  <p className="text-xs tracking-[0.08em] text-[var(--muted-text)] uppercase">
+                    Visit Duration
+                  </p>
+                  <p className="mt-2 text-3xl font-semibold">
+                    {analyticsQuery.data.visit_duration}
+                  </p>
                 </div>
-                <div className="rounded-[24px] border border-border bg-[var(--surface)] p-4">
-                  <p className="text-xs uppercase tracking-[0.08em] text-[var(--muted-text)]">Window</p>
-                  <p className="mt-2 text-2xl font-semibold">{analyticsQuery.data.date_range}</p>
-                  <p className="mt-1 text-xs text-[var(--muted-text)]">{analyticsQuery.data.source}</p>
+                <div className="border-border rounded-[24px] border bg-[var(--surface)] p-4">
+                  <p className="text-xs tracking-[0.08em] text-[var(--muted-text)] uppercase">
+                    Window
+                  </p>
+                  <p className="mt-2 text-2xl font-semibold">
+                    {analyticsQuery.data.date_range}
+                  </p>
+                  <p className="mt-1 text-xs text-[var(--muted-text)]">
+                    {analyticsQuery.data.source}
+                  </p>
                 </div>
               </div>
             ) : (
-              <div className="rounded-[28px] border border-border bg-[var(--surface)] p-5">
+              <div className="border-border rounded-[28px] border bg-[var(--surface)] p-5">
                 <div className="flex items-center gap-3">
                   <Eye className="h-5 w-5 text-[var(--accent-brand)]" />
-                  <p className="font-semibold">Analytics is not configured yet.</p>
+                  <p className="font-semibold">
+                    Analytics is not configured yet.
+                  </p>
                 </div>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted-text)]">
-                  Configure the Plausible tracking script in the frontend and the Plausible API credentials in the
-                  backend to start seeing live visitor numbers here.
+                  Configure the Plausible tracking script in the frontend and
+                  the Plausible API credentials in the backend to start seeing
+                  live visitor numbers here.
                 </p>
               </div>
             )}
             <div className="rounded-[28px] bg-white p-5">
-              <p className="text-sm font-semibold text-[var(--text)]">What you can already see now</p>
+              <p className="text-sm font-semibold text-[var(--text)]">
+                What you can already see now
+              </p>
               <ul className="mt-3 grid gap-2 text-sm text-[var(--muted-text)]">
-                <li>Real visitor, pageview, bounce-rate, and duration numbers when Plausible is configured</li>
+                <li>
+                  Real visitor, pageview, bounce-rate, and duration numbers when
+                  Plausible is configured
+                </li>
                 <li>Your total number of published resources</li>
                 <li>Your total number of visible entries</li>
                 <li>The last time your content library changed</li>
               </ul>
             </div>
             <p className="text-xs leading-6 text-[var(--muted-text)]">
-              The analytics API key stays on the backend only. The dashboard fetches aggregated stats through your
-              authenticated owner-only backend route.
+              The analytics API key stays on the backend only. The dashboard
+              fetches aggregated stats through your authenticated owner-only
+              backend route.
             </p>
           </CardContent>
         </Card>

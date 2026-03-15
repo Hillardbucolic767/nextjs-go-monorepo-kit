@@ -1,7 +1,9 @@
 import type { AuthUser } from "@/types/auth";
 
 export function getDashboardOwnerEmail() {
-  return process.env.NEXT_PUBLIC_DASHBOARD_OWNER_EMAIL?.trim().toLowerCase() ?? "";
+  return (
+    process.env.NEXT_PUBLIC_DASHBOARD_OWNER_EMAIL?.trim().toLowerCase() ?? ""
+  );
 }
 
 export function canAccessDashboard(user: AuthUser | null | undefined) {

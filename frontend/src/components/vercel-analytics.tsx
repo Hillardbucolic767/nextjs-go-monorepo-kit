@@ -10,7 +10,10 @@ function redactSensitiveParams(event: BeforeSendEvent): BeforeSendEvent {
   try {
     const url = new URL(event.url, "https://app.local");
 
-    if (url.pathname === "/create-new-password" && url.searchParams.has("token")) {
+    if (
+      url.pathname === "/create-new-password" &&
+      url.searchParams.has("token")
+    ) {
       url.searchParams.set("token", "redacted");
       return {
         ...event,

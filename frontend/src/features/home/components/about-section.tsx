@@ -20,7 +20,8 @@ export function AboutSection() {
           </h2>
           <p className="m-0 leading-[1.8] text-[var(--muted-text)]">
             This starter keeps the useful parts of a real app: authentication,
-            protected pages, public pages, server integration, and polished UI building blocks.
+            protected pages, public pages, server integration, and polished UI
+            building blocks.
           </p>
           <p className="m-0 leading-[1.8] text-[var(--muted-text)]">
             The sample collection and resource modules are meant to be replaced,
