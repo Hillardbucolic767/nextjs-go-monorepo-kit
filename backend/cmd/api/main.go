@@ -12,9 +12,13 @@ import (
 	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/config"
 	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/repository"
 	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/server"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	// Load local development variables when an .env file is present.
+	_ = godotenv.Load()
+
 	cfg := config.Load()
 	ctx := context.Background()
 

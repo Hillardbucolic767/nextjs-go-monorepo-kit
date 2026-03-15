@@ -11,6 +11,8 @@
     "lint:strict": "eslint --max-warnings=0 .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "e2e:test": "playwright test",
+    "e2e:headed": "playwright test --headed",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
@@ -34,6 +36,7 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@commitlint/cli": "^20.5.0",
