@@ -70,3 +70,8 @@ npm run check
 
 - [frontend/README.md](./frontend/README.md)
 - [backend/README.md](./backend/README.md)
+
+## Repository Standards
+
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [LICENSE](./LICENSE)
