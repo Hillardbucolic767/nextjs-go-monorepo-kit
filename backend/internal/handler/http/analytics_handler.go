@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/example/learning-platform-backend-template/internal/service"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/service"
 )
 
 type AnalyticsHandler struct {

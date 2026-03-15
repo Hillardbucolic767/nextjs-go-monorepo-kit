@@ -1,4 +1,4 @@
-module github.com/example/learning-platform-backend-template
+module github.com/Boyeep/nextjs-go-monorepo-kit/backend
 
 go 1.25.1
 

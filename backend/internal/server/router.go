@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/example/learning-platform-backend-template/internal/config"
-	httpHandler "github.com/example/learning-platform-backend-template/internal/handler/http"
-	"github.com/example/learning-platform-backend-template/internal/repository"
-	"github.com/example/learning-platform-backend-template/internal/service"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/config"
+	httpHandler "github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/handler/http"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/repository"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/service"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 

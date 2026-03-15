@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/example/learning-platform-backend-template/internal/domain"
-	"github.com/example/learning-platform-backend-template/internal/repository"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/domain"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/repository"
 )
 
 var slugSanitizer = regexp.MustCompile(`[^a-z0-9]+`)

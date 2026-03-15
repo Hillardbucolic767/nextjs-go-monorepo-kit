@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/example/learning-platform-backend-template/internal/config"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/config"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"golang.org/x/crypto/bcrypt"
 )

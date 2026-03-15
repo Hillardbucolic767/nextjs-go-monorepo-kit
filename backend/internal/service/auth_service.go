@@ -16,9 +16,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/example/learning-platform-backend-template/internal/config"
-	"github.com/example/learning-platform-backend-template/internal/domain"
-	"github.com/example/learning-platform-backend-template/internal/repository"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/config"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/domain"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/repository"
 	"github.com/golang-jwt/jwt/v5"
 	"golang.org/x/crypto/bcrypt"
 )

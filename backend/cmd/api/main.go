@@ -9,9 +9,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/example/learning-platform-backend-template/internal/config"
-	"github.com/example/learning-platform-backend-template/internal/repository"
-	"github.com/example/learning-platform-backend-template/internal/server"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/config"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/repository"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/server"
 )
 
 func main() {

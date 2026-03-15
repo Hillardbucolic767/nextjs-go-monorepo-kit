@@ -4,9 +4,9 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/example/learning-platform-backend-template/internal/domain"
-	"github.com/example/learning-platform-backend-template/internal/repository"
-	"github.com/example/learning-platform-backend-template/internal/service"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/domain"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/repository"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/service"
 )
 
 type AuthHandler struct {

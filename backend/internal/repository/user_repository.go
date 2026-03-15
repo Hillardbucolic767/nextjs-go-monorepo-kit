@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/example/learning-platform-backend-template/internal/domain"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/domain"
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 )

@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/example/learning-platform-backend-template/internal/config"
+	"github.com/Boyeep/nextjs-go-monorepo-kit/backend/internal/config"
 )
 
 type stubPinger struct {
