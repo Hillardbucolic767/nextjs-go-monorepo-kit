@@ -54,7 +54,7 @@ export function CenteredHomePage() {
         className="pointer-events-none absolute inset-x-[14%] top-[12%] h-[58svh] rounded-[48px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.5),rgba(255,255,255,0.08)_58%,transparent_82%)] blur-2xl"
       />
 
-      <section className="relative mx-auto flex min-h-[calc(100svh-7.5rem)] w-[min(1120px,calc(100%-2rem))] flex-col items-center justify-center gap-4 py-[clamp(1.5rem,3.4vw,3rem)] text-center max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))] max-[720px]:min-h-[calc(100svh-6.75rem)]">
+      <section className="relative mx-auto flex min-h-[calc(100svh-7.5rem)] w-[min(1120px,calc(100%-2rem))] flex-col items-center justify-center gap-4 py-[clamp(1.5rem,3.4vw,3rem)] text-center max-[720px]:min-h-[calc(100svh-6.75rem)] max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
         <div className="relative grid w-full max-w-[1000px] gap-4 overflow-hidden rounded-[42px] border border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.62),rgba(255,247,240,0.42))] px-[clamp(1.4rem,3vw,2.5rem)] py-[clamp(1.5rem,3.5vw,2.6rem)] shadow-[0_30px_90px_rgba(31,41,55,0.11)] backdrop-blur-[22px]">
           <div
             aria-hidden
@@ -75,7 +75,7 @@ export function CenteredHomePage() {
             starter sandbox
           </span>
 
-          <div className="relative grid max-w-[920px] justify-self-center gap-3">
+          <div className="relative grid max-w-[920px] gap-3 justify-self-center">
             <h1 className="m-0 font-[family-name:var(--font-display)] text-[clamp(2.7rem,5.1vw,4.5rem)] leading-[0.92] tracking-[-0.07em] text-[var(--text)]">
               Build your next product from a{" "}
               <span className="bg-[linear-gradient(135deg,var(--brand-deep),var(--brand),#f4a261)] bg-clip-text text-transparent">
@@ -85,8 +85,8 @@ export function CenteredHomePage() {
             </h1>
             <p className="m-0 max-w-[760px] justify-self-center text-[1rem] leading-[1.8] text-[var(--muted-text)] max-[720px]:text-[0.98rem]">
               {appConfig.name} gives you a clean starting surface with a Next.js
-              frontend, Go API, account flows, and adaptable product patterns that
-              are ready to become your own experience.
+              frontend, Go API, account flows, and adaptable product patterns
+              that are ready to become your own experience.
             </p>
           </div>
 
