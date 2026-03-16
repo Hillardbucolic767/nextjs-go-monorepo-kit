@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { LogOut, Menu } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAuthSession } from "@/features/auth/hooks/use-auth-session";
+import { useActiveSiteNav } from "@/features/shared/hooks/use-active-site-nav";
 import { useAuthStore } from "@/features/auth/store/auth-store";
 import { useUiStore } from "@/features/shared/store/ui-store";
 import { Button } from "@/components/ui/button";
@@ -20,13 +21,14 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/dashboard", label: "Dashboard" },
   { href: "/#about", label: "About" },
   { href: "/#contact", label: "Contact" },
+  { href: "/dashboard", label: "Dashboard" },
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const activeHref = useActiveSiteNav(pathname);
   const queryClient = useQueryClient();
   const mobileNavOpen = useUiStore((state) => state.mobileNavOpen);
   const setMobileNavOpen = useUiStore((state) => state.setMobileNavOpen);
@@ -62,10 +64,10 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              aria-current={pathname === item.href ? "page" : undefined}
+              aria-current={activeHref === item.href ? "page" : undefined}
               className={cn(
                 "rounded-full px-4 py-2.5 text-sm font-medium text-[var(--muted-text)] transition-colors hover:bg-[rgba(31,111,120,0.08)] hover:text-[var(--text)]",
-                pathname === item.href &&
+                activeHref === item.href &&
                   "bg-[rgba(31,111,120,0.1)] text-[var(--text)]",
               )}
             >
@@ -123,7 +125,14 @@ export function SiteHeader() {
                   <SheetClose asChild key={item.href}>
                     <Link
                       href={item.href}
-                      className="rounded-[20px] border border-[rgba(31,41,55,0.08)] bg-white/84 px-4 py-4 shadow-sm"
+                      aria-current={
+                        activeHref === item.href ? "page" : undefined
+                      }
+                      className={cn(
+                        "rounded-[20px] border border-[rgba(31,41,55,0.08)] bg-white/84 px-4 py-4 shadow-sm transition-colors",
+                        activeHref === item.href &&
+                          "border-[rgba(31,111,120,0.2)] bg-[rgba(31,111,120,0.08)] text-[var(--text)]",
+                      )}
                     >
                       {item.label}
                     </Link>
