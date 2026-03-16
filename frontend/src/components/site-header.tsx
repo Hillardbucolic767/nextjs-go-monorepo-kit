@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { LogOut, Menu } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAuthSession } from "@/features/auth/hooks/use-auth-session";
-import { useActiveSiteNav } from "@/features/shared/hooks/use-active-site-nav";
 import { useAuthStore } from "@/features/auth/store/auth-store";
 import { useUiStore } from "@/features/shared/store/ui-store";
 import { Button } from "@/components/ui/button";
@@ -21,14 +20,16 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/#about", label: "About" },
-  { href: "/#contact", label: "Contact" },
   { href: "/dashboard", label: "Dashboard" },
+  { href: "/sandbox", label: "Sandbox" },
 ];
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const activeHref = useActiveSiteNav(pathname);
+  const activeHref =
+    pathname === "/" || pathname === "/dashboard" || pathname === "/sandbox"
+      ? pathname
+      : "";
   const queryClient = useQueryClient();
   const mobileNavOpen = useUiStore((state) => state.mobileNavOpen);
   const setMobileNavOpen = useUiStore((state) => state.setMobileNavOpen);

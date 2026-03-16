@@ -24,10 +24,10 @@ test.describe("starter smoke flows", () => {
 
     await expect(
       page.getByRole("heading", {
-        name: "Starter sandbox for UI, forms, and layout blocks.",
+        name: "A vertical sandbox for the starter building blocks.",
       }),
     ).toBeVisible();
-    await expect(page.getByText("Button Styles")).toBeVisible();
+    await expect(page.getByText("Action styles")).toBeVisible();
 
     await page.goto("/templates/demo-resource");
 
