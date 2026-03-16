@@ -2,11 +2,8 @@ import Link from "next/link";
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { appConfig } from "@/lib/app-config";
-import { sampleResources } from "@/lib/site-data";
 
 export function HeroSection() {
-  const featuredPreview = sampleResources[0];
-
   return (
     <section className="relative px-0">
       <div className="mx-auto flex min-h-[calc(100svh-5.9rem)] w-[min(1120px,calc(100%-2rem))] flex-col items-center justify-center gap-4 py-[clamp(1.5rem,3.4vw,3rem)] text-center max-[720px]:min-h-[calc(100svh-5.35rem)] max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
@@ -45,15 +42,7 @@ export function HeroSection() {
               variant="secondary"
               className="min-w-[220px] border-[rgba(31,41,55,0.1)] bg-white/84"
             >
-              <Link
-                href={
-                  featuredPreview
-                    ? `/resources/${featuredPreview.slug}`
-                    : "/dashboard"
-                }
-              >
-                Browse sample resource
-              </Link>
+              <Link href="/sandbox">Open starter sandbox</Link>
             </Button>
           </div>
         </div>

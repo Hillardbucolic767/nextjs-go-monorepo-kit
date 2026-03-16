@@ -16,6 +16,18 @@ test.describe("starter smoke flows", () => {
     await expect(
       page.getByRole("link", { name: "Open dashboard preview" }),
     ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Open starter sandbox" }),
+    ).toBeVisible();
+
+    await page.goto("/sandbox");
+
+    await expect(
+      page.getByRole("heading", {
+        name: "Starter sandbox for UI, forms, and layout blocks.",
+      }),
+    ).toBeVisible();
+    await expect(page.getByText("Button Styles")).toBeVisible();
 
     await page.goto("/dashboard");
 
@@ -52,11 +64,16 @@ test.describe("starter smoke flows", () => {
     await page.getByLabel("Password").fill(demoPassword);
     await page.getByRole("button", { name: "Login" }).click();
 
+    const primaryNav = page.getByLabel("Primary");
+    const dashboardNavLink = primaryNav.getByRole("link", {
+      name: "Dashboard",
+    });
+
     await expect(page).toHaveURL(/\/$/);
     await expect(page.getByRole("button", { name: "Logout" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Dashboard" })).toBeVisible();
+    await expect(dashboardNavLink).toBeVisible();
 
-    await page.getByRole("link", { name: "Dashboard" }).click();
+    await dashboardNavLink.click();
 
     await expect(page).toHaveURL(/\/dashboard$/);
     await expect(page.getByText("Owner Dashboard")).toBeVisible();
