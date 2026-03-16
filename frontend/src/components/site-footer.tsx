@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { appConfig, brandInitials } from "@/lib/app-config";
+import { BrandMark } from "@/components/brand-mark";
+import { appConfig } from "@/lib/app-config";
 
 const footerLinks = [
   { href: "/", label: "Home" },
@@ -17,9 +18,7 @@ export function SiteFooter() {
       <div className="mx-auto w-[min(var(--max-width),calc(100%-2rem))] rounded-[34px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,244,236,0.78))] px-6 py-8 shadow-[0_20px_48px_rgba(31,41,55,0.08)] backdrop-blur-[18px] max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
         <div className="grid gap-5 text-center">
           <div className="inline-flex flex-wrap items-center justify-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-[18px] bg-[linear-gradient(135deg,rgba(239,125,87,0.95),rgba(255,185,103,0.9))] text-sm font-semibold tracking-[0.18em] text-white uppercase shadow-[0_10px_24px_rgba(239,125,87,0.24)]">
-              {brandInitials}
-            </span>
+            <BrandMark className="h-11 w-11" />
             <div className="grid gap-0.5 text-left max-[560px]:text-center">
               <strong className="font-[family-name:var(--font-display)] text-[1.2rem] tracking-[-0.04em] text-[var(--text)]">
                 {appConfig.name}
@@ -56,7 +55,7 @@ export function SiteFooter() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-medium text-[var(--accent-brand)] underline decoration-[0.08em] underline-offset-4"
+                className="animated-underline-link font-medium text-[var(--accent-brand)]"
               >
                 {item.label}
               </Link>

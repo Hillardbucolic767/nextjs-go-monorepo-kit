@@ -150,4 +150,34 @@
     font-size: 1.02rem;
     line-height: 1.7;
   }
+
+  .animated-underline-link {
+    position: relative;
+    display: inline-flex;
+    width: fit-content;
+    text-decoration: none;
+  }
+
+  .animated-underline-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -0.18em;
+    left: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.28;
+    transform: scaleX(0.36);
+    transform-origin: left;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .animated-underline-link:hover::after,
+  .animated-underline-link:focus-visible::after {
+    opacity: 0.85;
+    transform: scaleX(1);
+  }
 }

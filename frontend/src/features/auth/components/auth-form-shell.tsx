@@ -136,8 +136,8 @@ export function AuthFormShell({
 
   const footerLinkTone =
     footerLinkHref === "/signup"
-      ? "text-[var(--brand-deep)] decoration-[rgba(239,125,87,0.5)] hover:text-[var(--brand)]"
-      : "text-[var(--accent-brand)] decoration-[rgba(31,111,120,0.45)] hover:text-[var(--text)]";
+      ? "text-[var(--brand-deep)] hover:text-[var(--brand)]"
+      : "text-[var(--accent-brand)] hover:text-[var(--text)]";
 
   return (
     <AuthSplitShell
@@ -206,7 +206,7 @@ export function AuthFormShell({
             <Link
               href={footerLinkHref}
               className={cn(
-                "text-sm font-semibold underline decoration-[0.08em] underline-offset-4 transition-colors",
+                "animated-underline-link text-sm font-semibold transition-colors",
                 footerLinkTone,
               )}
             >

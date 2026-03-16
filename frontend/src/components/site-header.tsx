@@ -15,7 +15,8 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { appConfig, brandInitials } from "@/lib/app-config";
+import { BrandMark } from "@/components/brand-mark";
+import { appConfig } from "@/lib/app-config";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -45,9 +46,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 px-0 pt-4 pb-0">
       <div className="relative mx-auto grid w-[min(var(--max-width),calc(100%-2rem))] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-4 rounded-[28px] border border-white/75 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(255,245,238,0.68))] px-4 py-3 shadow-[0_12px_30px_rgba(31,41,55,0.04)] backdrop-blur-[24px] max-[900px]:flex max-[900px]:w-[min(var(--max-width),calc(100%-1.25rem))] max-[900px]:justify-between">
         <Link href="/" className="inline-flex min-w-0 items-center gap-3">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[18px] bg-[linear-gradient(135deg,rgba(239,125,87,0.95),rgba(255,185,103,0.9))] text-sm font-semibold tracking-[0.18em] text-white uppercase shadow-[0_10px_24px_rgba(239,125,87,0.24)]">
-            {brandInitials}
-          </span>
+          <BrandMark className="h-11 w-11 shrink-0" />
           <span className="grid min-w-0 gap-0.5">
             <span className="text-[0.68rem] font-bold tracking-[0.22em] text-[var(--brand-deep)] uppercase">
               Starter Sandbox

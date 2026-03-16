@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { appConfig } from "@/lib/app-config";
 
@@ -7,13 +6,7 @@ export function HeroSection() {
   return (
     <section className="relative px-0">
       <div className="mx-auto flex min-h-[calc(100svh-5.9rem)] w-[min(1120px,calc(100%-2rem))] flex-col items-center justify-center gap-4 py-[clamp(1.5rem,3.4vw,3rem)] text-center max-[720px]:min-h-[calc(100svh-5.35rem)] max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
-        <div className="grid max-w-[1000px] justify-items-center gap-4 px-[clamp(0.5rem,2vw,1rem)] py-[clamp(1rem,2.5vw,2rem)]">
-          <div className="relative inline-flex items-center justify-center rounded-[30px] border border-white/80 bg-white/76 p-2.5 shadow-[var(--shadow)] backdrop-blur-[18px]">
-            <div className="flex h-14 w-14 items-center justify-center rounded-[20px] bg-[linear-gradient(135deg,rgba(239,125,87,0.92),rgba(255,185,103,0.9))] text-white shadow-[0_18px_34px_rgba(239,125,87,0.22)]">
-              <Sparkles className="h-7 w-7" />
-            </div>
-          </div>
-
+        <div className="grid max-w-[1000px] justify-items-center gap-5 px-[clamp(0.5rem,2vw,1rem)] py-[clamp(1rem,2.5vw,2rem)]">
           <span className="relative inline-flex items-center rounded-full border border-[rgba(31,111,120,0.14)] bg-white/76 px-4 py-2 text-[0.78rem] font-bold tracking-[0.18em] text-[var(--accent-brand)] uppercase shadow-sm backdrop-blur-[12px]">
             starter sandbox
           </span>
