@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { Providers } from "@/components/providers";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 type RootShellProps = {
@@ -19,7 +18,6 @@ export function RootShell({ children }: RootShellProps) {
         </a>
         <SiteHeader />
         <div id="main-content">{children}</div>
-        <SiteFooter />
       </div>
     </Providers>
   );

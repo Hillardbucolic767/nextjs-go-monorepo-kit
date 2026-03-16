@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Blocks, DatabaseZap, ShieldCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { appConfig } from "@/lib/app-config";
-import { featuredTemplates } from "@/lib/site-data";
+import { featuredTemplates, sampleResources } from "@/lib/site-data";
 
 const quickFacts = [
   "Next.js + Go foundation",
@@ -35,6 +35,8 @@ const starterHighlights = [
 const featuredCards = featuredTemplates.slice(0, 3);
 
 export function CenteredHomePage() {
+  const featuredPreview = sampleResources[0];
+
   return (
     <main className="relative overflow-x-hidden px-0 pb-12">
       <div
@@ -50,7 +52,7 @@ export function CenteredHomePage() {
         className="pointer-events-none absolute inset-x-[14%] top-[12%] h-[58svh] rounded-[48px] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.5),rgba(255,255,255,0.08)_58%,transparent_82%)] blur-2xl"
       />
 
-      <section className="relative mx-auto flex min-h-[calc(100svh-7.5rem)] w-[min(1120px,calc(100%-2rem))] flex-col items-center justify-center gap-4 py-[clamp(1.5rem,3.4vw,3rem)] text-center max-[720px]:min-h-[calc(100svh-6.75rem)] max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
+      <section className="relative mx-auto flex min-h-[calc(100svh-5.9rem)] w-[min(1120px,calc(100%-2rem))] flex-col items-center justify-center gap-4 py-[clamp(1.5rem,3.4vw,3rem)] text-center max-[720px]:min-h-[calc(100svh-5.35rem)] max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
         <div className="grid max-w-[1000px] justify-items-center gap-4 px-[clamp(0.5rem,2vw,1rem)] py-[clamp(1rem,2.5vw,2rem)]">
           <div className="relative inline-flex items-center justify-center rounded-[30px] border border-white/80 bg-white/76 p-2.5 shadow-[var(--shadow)] backdrop-blur-[18px]">
             <div className="flex h-14 w-14 items-center justify-center rounded-[20px] bg-[linear-gradient(135deg,rgba(239,125,87,0.92),rgba(255,185,103,0.9))] text-white shadow-[0_18px_34px_rgba(239,125,87,0.22)]">
@@ -79,20 +81,28 @@ export function CenteredHomePage() {
 
           <div className="relative flex flex-wrap items-center justify-center gap-3 pt-2">
             <Button asChild className="min-w-[220px]">
-              <Link href="/login">Open sandbox access</Link>
+              <Link href="/preview">Open public preview</Link>
             </Button>
             <Button
               asChild
               variant="secondary"
               className="min-w-[220px] border-[rgba(31,41,55,0.1)] bg-white/84"
             >
-              <Link href="/signup">Create an account</Link>
+              <Link
+                href={
+                  featuredPreview
+                    ? `/resources/${featuredPreview.slug}`
+                    : "/preview"
+                }
+              >
+                Browse sample resource
+              </Link>
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="relative px-0 pt-0 pb-4">
+      <section className="relative px-0 pt-6 pb-4 max-[720px]:pt-4">
         <div className="mx-auto grid w-[min(1040px,calc(100%-2rem))] gap-4 max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
           <div className="flex flex-wrap items-center justify-center gap-3 pb-2">
             {quickFacts.map((fact) => (

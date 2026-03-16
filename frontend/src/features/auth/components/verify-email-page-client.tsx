@@ -13,6 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { AuthSplitShell } from "@/features/auth/components/auth-split-shell";
 import { verifyEmail } from "@/features/auth/services/auth-service";
 
 type VerifyEmailPageClientProps = {
@@ -56,20 +57,11 @@ export function VerifyEmailPageClient({ token }: VerifyEmailPageClientProps) {
   }, [token, verifyMutation]);
 
   return (
-    <main className="mx-auto my-4 grid w-[min(var(--max-width),calc(100%-2rem))] grid-cols-[minmax(300px,0.95fr)_minmax(0,1.05fr)] gap-5 max-[900px]:grid-cols-1 max-[720px]:w-[min(var(--max-width),calc(100%-1.25rem))]">
-      <section className="grid min-h-[520px] content-end gap-4 rounded-[32px] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.16),transparent_28%),linear-gradient(180deg,rgba(16,52,67,0.48),rgba(16,52,67,0.94))] p-[clamp(1.8rem,4vw,3rem)] text-white shadow-[var(--shadow)] max-[900px]:min-h-[320px]">
-        <span className="inline-flex w-fit rounded-full bg-white/15 px-3 py-2 text-[0.88rem] tracking-[0.04em] uppercase">
-          Email Verification
-        </span>
-        <h1 className="m-0 font-[family-name:var(--font-display)] text-[clamp(2.5rem,5vw,4.2rem)] leading-[0.96]">
-          Confirm your email so your account is ready to use.
-        </h1>
-        <p className="m-0 leading-[1.8] text-white/80">
-          We only activate new accounts after the owner proves they can open the
-          inbox tied to the email address.
-        </p>
-      </section>
-
+    <AuthSplitShell
+      badge="Email Verification"
+      heading="Confirm your email so your account is ready to use."
+      description="We only activate new accounts after the owner proves they can open the inbox tied to the email address."
+    >
       <Card className="rounded-[32px] border border-white/70 bg-white/85 p-[clamp(1.5rem,4vw,2rem)] shadow-[var(--shadow)]">
         <CardHeader className="mb-6 grid gap-2 p-0">
           <CardTitle>Verifying your email</CardTitle>
@@ -112,6 +104,6 @@ export function VerifyEmailPageClient({ token }: VerifyEmailPageClientProps) {
           </div>
         </CardContent>
       </Card>
-    </main>
+    </AuthSplitShell>
   );
 }

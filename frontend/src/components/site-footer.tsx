@@ -3,8 +3,9 @@ import { appConfig, brandInitials } from "@/lib/app-config";
 
 const footerLinks = [
   { href: "/", label: "Home" },
+  { href: "/preview", label: "Preview" },
   { href: "/#about", label: "About" },
-  { href: "/login", label: "Sandbox Login" },
+  { href: "/login", label: "Auth Demo" },
   { href: "/signup", label: "Create Account" },
 ];
 

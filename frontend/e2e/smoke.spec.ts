@@ -14,7 +14,20 @@ test.describe("starter smoke flows", () => {
       }),
     ).toBeVisible();
     await expect(
-      page.getByRole("link", { name: "Open sandbox access" }),
+      page.getByRole("link", { name: "Open public preview" }),
+    ).toBeVisible();
+
+    await page.goto("/preview");
+
+    await expect(
+      page.getByRole("heading", {
+        name: "Explore the starter without creating an account first.",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        name: "Sample resources that already work without login",
+      }),
     ).toBeVisible();
 
     await page.goto("/collections");

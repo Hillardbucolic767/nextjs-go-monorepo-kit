@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { AuthCenteredShell } from "@/features/auth/components/auth-centered-shell";
 import { resendVerification } from "@/features/auth/services/auth-service";
 
 type ConfirmEmailPageClientProps = {
@@ -29,7 +30,7 @@ export function ConfirmEmailPageClient({ email }: ConfirmEmailPageClientProps) {
   });
 
   return (
-    <main className="mx-auto flex min-h-[calc(100vh-12rem)] w-[min(100%,32rem)] items-center justify-center px-5 py-10">
+    <AuthCenteredShell>
       <Card className="w-full rounded-[32px] border border-white/70 bg-white/90 p-2 shadow-[var(--shadow)]">
         <CardHeader className="items-center text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--accent-soft)] text-[var(--accent-brand)]">
@@ -74,6 +75,6 @@ export function ConfirmEmailPageClient({ email }: ConfirmEmailPageClientProps) {
           </Button>
         </CardContent>
       </Card>
-    </main>
+    </AuthCenteredShell>
   );
 }
