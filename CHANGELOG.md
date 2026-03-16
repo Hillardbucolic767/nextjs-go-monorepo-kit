@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.0](https://github.com/Boyeep/nextjs-go-monorepo-kit/compare/v1.0.1...v1.1.0) (2026-03-16)
+
+
+### Features
+
+* **frontend:** add public sandbox showcase ([3b94720](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/3b947204fb4a44f71e83693d9dde7f89eba390d6))
+* **frontend:** polish shared site interactions ([1384fff](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/1384fff9845fb0ef23bb25936289cd6487e27ae3))
+
+
+### Bug Fixes
+
+* **frontend:** blend header into homepage background ([8aa6d75](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/8aa6d75523936296bf576e44986bd026c8f07137))
+* **frontend:** improve navbar section state ([90ba1f9](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/90ba1f906060276e64a8b93c2c8779136e45fcce))
+* **frontend:** refine supporting ui details ([2f3d86c](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/2f3d86c94902552751b45316c03798e001da5424))
+* **frontend:** remove hard edge beneath header ([53e9385](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/53e9385c23358b1ade3821610793c030c330de26))
+* **frontend:** simplify support cards and sandbox form ([34e02d7](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/34e02d76dd2b723fa3e339e4068944241398d461))
+* **frontend:** smooth homepage background seam ([bb1eedc](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/bb1eedc9a5e808b9e651bb3a7ffe4f09eb1857af))
+* **frontend:** tighten homepage support cards ([32e5c22](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/32e5c2251705016418a4cda78430f370f78379dc))
+* **frontend:** unify header and hero backdrop ([524a125](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/524a125a819e977f5d08be99e94475143dfd1096))
+
 ## [1.0.1](https://github.com/Boyeep/nextjs-go-monorepo-kit/compare/v1.0.0...v1.0.1) (2026-03-16)
 
 
