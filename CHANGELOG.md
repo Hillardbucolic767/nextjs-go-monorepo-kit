@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/Boyeep/nextjs-go-monorepo-kit/compare/v1.1.0...v1.1.1) (2026-03-21)
+
+
+### Bug Fixes
+
+* stabilize generated OpenAPI formatting ([52ef615](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/52ef6158d9214eaa3fe1ed455025a4b6db16697c))
+
 ## [1.1.0](https://github.com/Boyeep/nextjs-go-monorepo-kit/compare/v1.0.1...v1.1.0) (2026-03-16)
 
 
