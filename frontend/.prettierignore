@@ -4,4 +4,5 @@ coverage
 playwright-report
 test-results
 public/sitemap*.xml
+src/generated/openapi.ts
 tsconfig.typecheck.tsbuildinfo
