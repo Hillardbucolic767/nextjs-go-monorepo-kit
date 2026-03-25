@@ -7,6 +7,7 @@ const config = [
   {
     ignores: [
       ".next/**",
+      "eslint.config.mjs",
       "next-env.d.ts",
       "node_modules/**",
       "public/sitemap*.xml",
