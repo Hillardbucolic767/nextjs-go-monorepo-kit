@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/Boyeep/nextjs-go-monorepo-kit/compare/v1.1.1...v1.2.0) (2026-03-25)
+
+
+### Features
+
+* **frontend:** polish motion and interaction states ([1006ef5](https://github.com/Boyeep/nextjs-go-monorepo-kit/commit/1006ef5af760812b56fd5e3a4e69573a2d7addec))
+
 ## [1.1.1](https://github.com/Boyeep/nextjs-go-monorepo-kit/compare/v1.1.0...v1.1.1) (2026-03-21)
 
 
