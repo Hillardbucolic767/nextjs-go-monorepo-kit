@@ -240,6 +240,10 @@
     --animated-underline-active-height: 3px;
     --animated-underline-dots-height: 4px;
     --animated-underline-offset: -0.22em;
+    --animated-underline-active-shift: calc(
+      (var(--animated-underline-dots-height) - var(--animated-underline-active-height)) /
+        2
+    );
     position: relative;
     display: inline-flex;
     width: fit-content;
@@ -262,7 +266,9 @@
   .animated-underline-link::before {
     content: "";
     position: absolute;
-    bottom: var(--animated-underline-offset);
+    bottom: calc(
+      var(--animated-underline-offset) + var(--animated-underline-active-shift)
+    );
     left: 0;
     width: 0;
     height: var(--animated-underline-active-height);
